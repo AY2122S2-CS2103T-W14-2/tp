@@ -7,3 +7,5 @@ git_source(:github) {"https://github.com/AY2122S2-CS2103T-W14-2/tp"}
 gem 'jekyll'
 gem 'github-pages', group: :jekyll_plugins
 gem 'wdm', '~> 0.1.0' if Gem.win_platform?
+
+gem "webrick", "~> 1.7"
