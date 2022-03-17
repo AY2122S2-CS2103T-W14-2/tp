@@ -99,16 +99,10 @@ public class DeleteTagCommand extends Command {
 
     @Override
     public boolean equals(Object other) {
-        // short circuit if same object
-        if (other == this) {
-            return true;
-        }
 
-        // instanceof handles nulls
-        if (!(other instanceof EditCommand)) {
-            return false;
-        }
-
-        return false;
+        return other == this // short circuit if same object
+                || (other instanceof DeleteTagCommand // instanceof handles nulls
+                && (index.equals(((DeleteTagCommand) other).index)
+                && tagName.equals((((DeleteTagCommand) other).tagName))));
     }
 }

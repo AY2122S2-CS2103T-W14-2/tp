@@ -33,12 +33,13 @@ public class AddTagCommand extends Command {
     public static final String MESSAGE_ADD_TAG_SUCCESS = "Added tag: %1$s";
     public static final String MESSAGE_DUPLICATE_TAG = "This person already has this tag!";
 
-    private final Index index;
-    private final String tagName;
+    public final Index index;
+    public final String tagName;
 
     /**
      * Public constructor for AddTagCommand
-     * @param index Index of person to add tag to
+     *
+     * @param index   Index of person to add tag to
      * @param tagName Name of tag
      */
     public AddTagCommand(Index index, String tagName) {
@@ -61,6 +62,7 @@ public class AddTagCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = addTagToPerson(personToEdit);
+
 
         // Exception when a duplicate tag is added
         Tag testTag = new Tag(this.tagName);
@@ -98,16 +100,12 @@ public class AddTagCommand extends Command {
 
     @Override
     public boolean equals(Object other) {
-        // short circuit if same object
-        if (other == this) {
-            return true;
-        }
 
-        // instanceof handles nulls
-        if (!(other instanceof EditCommand)) {
-            return false;
-        }
-
-        return false;
+        return other == this // short circuit if same object
+                || (other instanceof AddTagCommand // instanceof handles nulls
+                && (index.equals(((AddTagCommand) other).index)
+                && tagName.equals((((AddTagCommand) other).tagName))));
     }
+
 }
+
