@@ -19,7 +19,7 @@ public class AddPlayerCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Add a player in the strategy panel. "
             + "Parameters: "
-            + "PLAYER_NAME (must be non-empty and not more than 50 characters)\n"
+            + "PLAYER_NAME (must be non-empty and not more than 24 characters)\n"
             + "Example: " + COMMAND_WORD + " "
             + "Lionel Messi";
 

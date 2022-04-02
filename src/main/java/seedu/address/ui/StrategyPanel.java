@@ -198,7 +198,7 @@ public class StrategyPanel extends UiPart<Region> {
         text.setX(x);
         text.setY(y);
         text.setText(value);
-        text.setFont(Font.font("Arial", 24));
+        text.setFont(Font.font("Arial", 18));
         double width = text.prefWidth(-1);
         text.setX(250 - width / 2);
         text.setTextOrigin(VPos.CENTER);
@@ -211,6 +211,7 @@ public class StrategyPanel extends UiPart<Region> {
         initCircle(cr, rad, x, y, color);
         text.xProperty().bind(cr.centerXProperty());
         text.yProperty().bind(cr.centerYProperty());
+        text.wrappingWidthProperty().bind(cr.radiusProperty().multiply(2).subtract(10));
         stack.getChildren().addAll(cr, text);
         stack.setTranslateX(x);
         stack.setTranslateY(y);
